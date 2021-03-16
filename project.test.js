@@ -91,9 +91,9 @@ describe('server.js', () => {
       const res1 = await request(server).post('/api/cars').send(cars[0])
       const res2 = await request(server).post('/api/cars').send(cars[1])
       const res3 = await request(server).post('/api/cars').send(cars[2])
-      expect(res1.body).toMatchObject({ id: 1, ...cars[0] })
-      expect(res2.body).toMatchObject({ id: 2, ...cars[1] })
-      expect(res3.body).toMatchObject({ id: 3, ...cars[2] })
+      expect(res1.body).toMatchObject({ cars_id: 1, ...cars[0] })
+      expect(res2.body).toMatchObject({ cars_id: 2, ...cars[1] })
+      expect(res3.body).toMatchObject({ cars_id: 3, ...cars[2] })
     }, 500)
     it('responds with a 400 and proper error on missing vin', async () => {
       const { vin, ...badCar } = cars[0] // eslint-disable-line
